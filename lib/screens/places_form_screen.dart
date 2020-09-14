@@ -44,6 +44,8 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
                 icon: Icon(Icons.add),
                 label: Text('Add'),
                 elevation: 0,
+                color: Theme.of(context).primaryColor,
+                textColor: Colors.white,
             ),
           ],
         ),
