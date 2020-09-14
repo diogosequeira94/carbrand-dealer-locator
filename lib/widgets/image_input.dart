@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImageInput extends StatefulWidget {
+
+  final Function onSelectImage;
+
+  ImageInput(this.onSelectImage);
+
   @override
   _ImageInputState createState() => _ImageInputState();
 }
@@ -24,6 +29,9 @@ class _ImageInputState extends State<ImageInput> {
     setState(() {
       _storedImage = File(imageFile.path);
     });
+
+    // We can pass the selected image to the other screen via external function
+//    widget.onSelectImage(...);
   }
 
   @override
