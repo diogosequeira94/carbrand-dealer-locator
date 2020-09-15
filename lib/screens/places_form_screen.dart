@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:car_dealer_service/providers/great_places.dart';
 import 'package:car_dealer_service/widgets/image_input.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PlaceFormScreen extends StatefulWidget {
   @override
@@ -18,7 +20,16 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
   }
 
   void _submitForm(){
+    if(_titleController.text.isEmpty || _pickedImage == null){
+      return;
+    }
 
+    Provider.of<GreatPlaces>(context, listen: false).addPlace(
+        _titleController.text,
+        _pickedImage
+    );
+
+    Navigator.of(context).pop();
   }
 
   @override
@@ -47,7 +58,9 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
               ),
             ),
             RaisedButton.icon(
-                onPressed: () => _submitForm,
+                onPressed: (){
+                  _submitForm();
+                },
                 icon: Icon(Icons.add),
                 label: Text('Add'),
                 elevation: 0,

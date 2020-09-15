@@ -16,7 +16,7 @@ class PlacesListScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Text("Main Page"),
+        child: Text("No Car dealers selected yet"),
       ),
     );
   }
