@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:car_dealer_service/models/place.dart';
+import 'package:car_dealer_service/repository/db_repository.dart';
 import 'package:flutter/material.dart';
 
 class GreatPlaces with ChangeNotifier {
@@ -28,6 +29,11 @@ class GreatPlaces with ChangeNotifier {
     );
 
     _items.add(newPlace);
+    DbRepository.insert('places', {
+      'id': newPlace.id,
+      'title': newPlace.title,
+      'image': newPlace.image.path
+    });
     notifyListeners();
   }
 }
