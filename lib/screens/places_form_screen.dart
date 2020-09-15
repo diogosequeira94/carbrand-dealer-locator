@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:car_dealer_service/providers/great_places.dart';
 import 'package:car_dealer_service/widgets/image_input.dart';
+import 'package:car_dealer_service/widgets/location_input.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,17 +45,21 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
-              child: Column(
-                children: <Widget>[
-                  TextField(
-                      controller: _titleController,
-                      decoration: InputDecoration(
-                      labelText: 'Title',
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    TextField(
+                        controller: _titleController,
+                        decoration: InputDecoration(
+                        labelText: 'Title',
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  ImageInput(this._selectImage),
-                ],
+                    SizedBox(height: 10),
+                    ImageInput(this._selectImage),
+                    SizedBox(height: 10),
+                    LocationInput(),
+                  ],
+                ),
               ),
             ),
             RaisedButton.icon(
